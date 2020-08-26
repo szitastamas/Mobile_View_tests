@@ -343,7 +343,7 @@ body{
 @media(max-width: 360px){
 
   #lailo-character-canvas{
-    bottom: 70px;
+    bottom: 72px;
     transform: scale(.5)
   }
 
