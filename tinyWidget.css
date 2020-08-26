@@ -348,11 +348,11 @@ body{
 
   #lailo-character-canvas{
     bottom: 70px;
-    transform: scale(.6)
+    transform: scale(.5)
   }
 
   #lailo-widget-container.container-show #lailo-character-canvas{
-    top: -455px;
+    top: -385px;
     z-index: 100;
     opacity: 1;
     transition: 400ms all ease-out;
