@@ -330,8 +330,14 @@ body{
   }
 
   #lailo-user-input{
+    position: relative;
     font-size: 1rem;
     width: 100%;
+    z-index: 5000;
+  }
+
+  #lailo-microphone-button{
+    z-index: 5001;
   }
 
   #lailo-answer-text-field{
