@@ -271,15 +271,15 @@ body{
 
   #lailo-microphone-button{
     top: -200%;
-    left: 55%;
+    right: 0;
   }
 
   #lailo-text-input-button{
     position: absolute;
     display: block;
-    top: -200%;
-    left: 25%;
-    font-size: 2rem;
+    top: -320%;
+    right: 0;
+    font-size: 1.85rem;
   }
 
   #lailo-user-input-container.show #lailo-text-input-button{
@@ -304,7 +304,7 @@ body{
 
   #loading{
     top: -205%;
-    left: 54.5%;
+    left: 80%;
   }
 
 }
