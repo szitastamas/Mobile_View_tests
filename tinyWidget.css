@@ -304,10 +304,6 @@ body{
   #lailo-widget-container.container-show #ask-me-container #lailo-widget-toggle-button #hide-icon{
     transform: rotate(-90deg);
   }
-
-  #ask-me-container-title{
-    display: none;
-  }
   
   #lailo-user-input-container{
     padding: 2rem;
