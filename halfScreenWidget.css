@@ -1,0 +1,390 @@
+
+:root{
+  --lailo-primary-color: #f8b816;
+  --lailo-secondary-color: #dfa107;
+  --lailo-text-color: rgb(75, 75, 75);
+}
+
+body{
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: rgb(25, 25, 25);
+}
+
+#lailo-widget-container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 1000ms ease-in-out;
+  z-index: -1;
+  animation: slideIn 1000ms ease-in-out forwards;
+}
+
+#lailo-widget-container.before-init{
+  display: none;
+}
+
+#ask-me-container{
+  min-width: 180px;
+  color: var(--lailo-text-color);
+  position: fixed;
+  bottom: 150px;
+  right: 0px;
+  font-size: 1.3rem;
+  background: whitesmoke;
+  padding: 0 2rem 0rem 0rem;
+  z-index: 95;
+}
+
+#lailo-widget-toggle-button{
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: .8rem 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 100ms ease-out;
+  margin-right: 1rem;
+}
+
+#hide-icon{
+  font-size: 1.6rem;
+  transition: 300ms ease-out transform;
+}
+
+#lailo-character-canvas{
+  position: absolute;
+  left: -200px;
+  bottom: 200px;
+  transition: all 200ms ease-out;
+  z-index: 2;
+}
+
+#lailo-character-canvas.hide{
+  transition: all 0ms ease-out;
+  opacity: 0;
+}
+
+#lailo-user-input-container{
+  position: relative;
+  height: 100%;
+  background: transparent;
+  padding: 0rem 2rem 0rem 15rem;
+  transform: translateX(100%);
+  transition: 400ms all ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#lailo-user-input-container-title{
+  font-size: 2rem;
+  text-align: right;
+  color: var(--lailo-text-color);
+  font-weight: normal;
+}
+
+.lailo-control-group{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#lailo-microphone-button{
+  font-size: 2.3rem;
+  position: absolute;
+  border-radius: 0;
+  padding: .45rem 1rem;
+}
+
+#lailo-user-input{
+  min-width: 350px;
+  font-size: 1.3rem;
+  padding: 1rem 2rem 1rem 5rem;
+  outline: none;
+  border: none;
+  position: relative;
+  background: rgba(211, 199, 36, 0.150);
+  z-index: 3;
+}
+
+#lailo-user-input:focus{
+  border-color: var(--lailo-secondary-color);
+}
+
+.bot-control-element{
+  outline: none;
+  border: none;
+  padding: .6rem .9rem;
+  background-color: var(--lailo-primary-color);
+  color: white;
+  cursor: pointer;
+  transition: all 120ms ease-out;
+  font-size: 1.3rem;
+  z-index: 3;
+}
+
+.bot-control-element:hover{
+  background: var(--lailo-secondary-color);
+}
+
+#lailo-answer-text-field{
+  max-width: 510px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  color: var(--lailo-text-color);
+}
+
+.bot-control-element.active,
+.bot-control-element.listening{
+  animation: pulse 1400ms ease-out infinite;
+  background: var(--lailo-primary-color);
+  z-index: 90;
+  opacity: 1 !important;
+}
+
+#lailo-example-questions{
+  text-align: left;
+}
+
+.lailo-link{
+  text-align: center;
+  border: 1px solid var(--lailo-primary-color);
+  padding: .3rem .6rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  font-style: normal;
+  color: var(--lailo-primary-color);
+  align-self: flex-start;
+  justify-self: center;
+  margin: 1rem auto .4rem auto;
+  width: 100%;
+  transition: all 120ms ease-out;
+  cursor: pointer;
+}
+
+.lailo-link:hover{
+  background: var(--lailo-primary-color);
+  color: var(--lailo-text-color);
+}
+
+.hidden{
+  opacity: 0;
+  z-index: -5;
+}
+
+/* SHOW USER INPUT CONTAINER */
+
+#lailo-widget-container.container-show{
+  z-index: 10000;
+}
+
+#lailo-widget-container.container-show #lailo-user-input-container{
+  transform: none;
+  background: white;
+}
+
+#lailo-widget-container.container-show #lailo-character-canvas{
+  bottom: -10px;
+  left: -275px;
+}
+
+#lailo-widget-container.container-show #ask-me-container #lailo-widget-toggle-button #hide-icon{
+  transform: rotate(180deg);
+}
+
+.deactivated{
+  user-select: none;
+  pointer-events: none;
+  background: rgb(221, 221, 221) !important;
+  border: 2px solid grey;
+  color: grey;
+}
+
+#loading {
+  position: absolute;
+  top: -2%;
+  left: -.5%;
+  width: 40px;
+  height: 40px;
+  z-index: 5000;
+}
+
+#loading.hidden{
+  z-index: -5;
+}
+
+#loading div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  margin: 8px;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 50%;
+  animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: white transparent transparent transparent;
+}
+#loading div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+#loading div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+#loading div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+/*  RESPONSIVE DESIGN FOR SMALLER LAPTOPS  */
+
+@media(min-width: 869px) and (max-width: 1430px){
+  #lailo-user-input-container{
+    padding: 0rem 2rem 0rem 10rem;
+  }
+
+  #lailo-answer-text-field{
+    font-size: 1.2rem;
+  }
+}
+
+/* RESPONSIVE DESIGN FOR TABLETS AND MOBILE PHONES */
+
+@media(max-width: 868px){
+
+  #lailo-widget-container{
+    margin: auto;
+    width: 100%;
+  }
+
+  #lailo-character-canvas{
+    top: -25px;
+    right: -380px;
+    transform: scale(.7);
+    z-index: -5;
+    opacity: 0;
+    transition-duration: 0ms;
+  }
+
+  #ask-me-container{
+    display: flex;
+    align-items: center;
+    min-width: auto;
+    padding-right: 0rem;
+    bottom: 0;
+    min-width: 180px;
+  }
+
+  .bot-control-element{
+    margin: 0;
+  }
+
+  #lailo-widget-toggle-button{
+    font-size: 1.6rem;
+    margin-left: 0;
+    margin-right: 1rem;
+    padding: .5rem 1rem;
+  }
+
+  #lailo-widget-toggle-button #hide-icon{
+    font-size: 1.3rem;
+    transform: none;
+    transform: rotate(90deg);
+  }
+  
+  #lailo-widget-container.container-show #ask-me-container #lailo-widget-toggle-button #hide-icon{
+    transform: rotate(-90deg);
+  }
+
+  /* #ask-me-container-title{
+    display: none;
+  } */
+  
+  #lailo-user-input-container{
+    padding: 2rem;
+    transform: translateY(100%);
+    transition-duration: 400ms;
+  }
+
+  #lailo-widget-container.container-show #lailo-user-input-container{
+    transform: none;
+  }
+
+  #lailo-widget-container.container-show #lailo-character-canvas{
+    position: static;
+    top: 0;
+    right: -380px;
+    z-index: 100;
+    opacity: 1;
+    margin: -7rem 0 -4.5rem 0;
+    transition: 400ms all ease-out;
+  }
+
+  #lailo-user-input-container{
+    display: block;
+  }
+
+  #lailo-user-input-container-title{
+    margin: .5rem 0;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  #lailo-user-input{
+    min-width: auto;
+    font-size: 1rem;
+    padding: 1.2rem 2rem 1.2rem 5rem;
+    width: 100%;
+  }
+
+  #lailo-answer-text-field{
+    max-width: 100%;
+    font-size: 1.2rem;
+  }
+}
+
+@media(max-height: 660px){
+  #lailo-user-input-container-title{
+    display: none;
+  }
+
+  #lailo-answer-text-field{
+    max-width: 100%;
+    font-size: 1rem;
+    max-height: 120px;
+    margin: .3rem 0;
+  }
+}
+
+/*  ANIMATION HANDLERS  */
+
+@keyframes slideIn{
+  to{
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse{
+  50%{
+    background: var(--lailo-secondary-color);
+  }
+}
