@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Rename: StandAlone
     const minimalBotInitObject = {
-        widgetType: "standAlone", // halfScreenWidget, tinyWidget, standAlone,
+        widgetType: "halfScreenWidget", // halfScreenWidget, tinyWidget, standAlone,
         botSecret: "028d05de-fa1f-4a92-8168-b9dff7cb493e",
         language: "de-DE"
     }
