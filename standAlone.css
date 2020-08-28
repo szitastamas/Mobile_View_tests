@@ -9,7 +9,6 @@ body{
   display: flex;
   align-items: center;
   background: rgb(25, 25, 25);
-  overflow: hidden;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -22,6 +21,8 @@ body{
   justify-content: center;
   min-height: 100vh;
   width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 #lailo-widget-toggle-button{
@@ -70,6 +71,11 @@ body{
   border-radius: 0;
   padding: .45rem 1rem;
   background: transparent;
+}
+
+#lailo-canvas-microphone-button.listening{
+  color: red;
+  animation: none;
 }
 
 #lailo-canvas-user-question{
