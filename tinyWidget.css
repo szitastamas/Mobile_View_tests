@@ -99,6 +99,14 @@ body{
   margin: 0 .5rem;
 }
 
+#lailo-send-text-button{
+  font-size: 1.8rem;
+  position: absolute;
+  padding: .6rem 1rem .6rem .6rem;
+  margin: 0 .5rem;
+  z-index: -1;
+}
+
 #lailo-user-input{
   font-size: 1.1rem;
   padding: 1.3rem 1.7rem 1.3rem 5rem;
