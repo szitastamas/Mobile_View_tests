@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Rename: StandAlone
     const minimalBotInitObject = {
-        widgetType: "tinyWidget", // halfScreenWidget, tinyWidget, standAlone,
-        botSecret: "8cff67c2-8371-4465-a7e9-a9b8f8bb7217",
+        widgetType: "standAlone", // halfScreenWidget, tinyWidget, standAlone,
+        botSecret: "028d05de-fa1f-4a92-8168-b9dff7cb493e",
         language: "de-DE"
     }
     
-    Lailo.init(minimalBotInitObject);
+    Lailo.init(minimalBotInitObject).then(bot => console.log(bot))
 });

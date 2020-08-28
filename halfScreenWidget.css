@@ -211,8 +211,9 @@ body{
 
 #loading {
   position: absolute;
-  top: -2%;
-  left: -.5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 40px;
   height: 40px;
   z-index: 5000;
@@ -226,15 +227,15 @@ body{
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 44px;
-  height: 44px;
-  margin: 8px;
+  width: 100%;
+  height: 100%;
   border-width: 5px;
   border-style: solid;
   border-radius: 50%;
   animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: white transparent transparent transparent;
 }
+
 #loading div:nth-child(1) {
   animation-delay: -0.45s;
 }
@@ -269,7 +270,7 @@ body{
   #lailo-character-canvas{
     top: -25px;
     right: -380px;
-    transform: scale(.7);
+    transform: scale(.8);
     z-index: -5;
     opacity: 0;
     transition-duration: 0ms;
@@ -304,10 +305,6 @@ body{
   #lailo-widget-container.container-show #ask-me-container #lailo-widget-toggle-button #hide-icon{
     transform: rotate(-90deg);
   }
-
-  /* #ask-me-container-title{
-    display: none;
-  } */
   
   #lailo-user-input-container{
     padding: 2rem;
@@ -321,8 +318,7 @@ body{
 
   #lailo-widget-container.container-show #lailo-character-canvas{
     position: static;
-    top: 0;
-    right: -380px;
+    transform: scale(.8) translateY(-28px);
     z-index: 100;
     opacity: 1;
     margin: -7rem 0 -4.5rem 0;
@@ -354,7 +350,8 @@ body{
 
 @media(max-height: 660px){
   #lailo-user-input-container-title{
-    display: none;
+    font-size: 1.2rem;
+    margin: 0;
   }
 
   #lailo-answer-text-field{
